@@ -5,6 +5,9 @@ import HomePage from "./pages/homePage";
 import MoviePage from "./pages/movieDetailsPage";
 import FavoriteMoviesPage from "./pages/favoriteMoviesPage";
 
+
+
+
 const App = () => {
   return (
     <BrowserRouter>

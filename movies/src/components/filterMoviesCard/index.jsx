@@ -29,7 +29,6 @@ export default function FilterMoviesCard(props) {
     getGenres().then((allGenres) => {
       setGenres([genres[0], ...allGenres]);
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
 

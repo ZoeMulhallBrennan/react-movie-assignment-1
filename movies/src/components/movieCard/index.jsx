@@ -1,4 +1,4 @@
-import React, { useContext  } from "react";
+import React, { useContext } from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -15,22 +15,13 @@ import img from '../../images/film-poster-placeholder.png'
 import { Link } from "react-router";
 import Avatar from '@mui/material/Avatar';
 import { MoviesContext } from "../../contexts/moviesContext";
-
+import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
 
 export default function MovieCard({ movie, action }) {
-  const { favorites, addToFavorites } = useContext(MoviesContext);
+  const { favorites } = useContext(MoviesContext);
 
-  if (favorites.find((id) => id === movie.id)) {
-    movie.favorite = true;
-  } else {
-    movie.favorite = false
-  }
-
-  const handleAddToFavorite = (e) => {
-    e.preventDefault();
-    addToFavorites(movie);
-  };
-
+ 
+  movie.favorite = favorites.includes(movie.id);
 
   return (
     <Card>
@@ -44,7 +35,7 @@ export default function MovieCard({ movie, action }) {
         }
         title={
           <Typography variant="h5" component="p">
-            {movie.title}{" "}
+            {movie.title}
           </Typography>
         }
       />
@@ -57,34 +48,34 @@ export default function MovieCard({ movie, action }) {
             : img
         }
       />
+
       <CardContent>
         <Grid container>
-          <Grid size={{xs: 6}}>
+          <Grid size={{ xs: 6 }}>
             <Typography variant="h6" component="p">
               <CalendarIcon fontSize="small" />
               {movie.release_date}
             </Typography>
           </Grid>
-          <Grid size={{xs: 6}}>
+          <Grid size={{ xs: 6 }}>
             <Typography variant="h6" component="p">
               <StarRateIcon fontSize="small" />
-              {"  "} {movie.vote_average}{" "}
+              {"  "} {movie.vote_average}
             </Typography>
           </Grid>
         </Grid>
       </CardContent>
+
       <CardActions disableSpacing>
-      
-        {action(movie)}
-      
+     
+        {action && action(movie)}
+
         <Link to={`/movies/${movie.id}`}>
           <Button variant="outlined" size="medium" color="primary">
             More Info ...
           </Button>
         </Link>
-        
       </CardActions>
-
     </Card>
   );
 }

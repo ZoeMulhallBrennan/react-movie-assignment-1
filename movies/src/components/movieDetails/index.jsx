@@ -9,6 +9,8 @@ import Fab from "@mui/material/Fab";
 import Typography from "@mui/material/Typography";
 import Drawer from "@mui/material/Drawer";
 import MovieReviews from "../movieReviews";
+import LanguageIcon from "@mui/material/Chip";
+
 
 
 
@@ -70,7 +72,20 @@ const [drawerOpen, setDrawerOpen] = useState(false);
             <Chip label={country.name} sx={{...chip}}></Chip>
         </li>
     ))}
-        </Paper>
+    </Paper>
+
+<Paper component="ul" sx={{ ...root }}>
+  <li>
+    <Chip
+      icon={<LanguageIcon />}
+      label={`Original Language: ${movie.original_language.toUpperCase()}`}
+      sx={{ ...chip }}
+      color="primary"
+    />
+  </li>
+</Paper>
+
+
       <Fab
         color="secondary"
         variant="extended"

@@ -90,6 +90,25 @@ export const getMovie = (args) => {
    });
   };
 
+export const getTrendingTodayMovies = () => {
+  return fetch(
+    "https://api.themoviedb.org/3/trending/movie/day?api_key=" +
+      import.meta.env.VITE_TMDB_KEY
+  )
+    .then((response) => {
+      if (!response.ok) {
+        return response.json().then((error) => {
+          throw new Error(error.status_message || "Something went wrong");
+        });
+      }
+      return response.json();
+    })
+    .then((data) => data.results)
+    .catch((error) => {
+      throw error;
+    });
+};
+
 export const getUpcomingMovies = () => {
   return fetch(
     "https://api.themoviedb.org/3/movie/upcoming?api_key=" +
@@ -108,7 +127,14 @@ export const getUpcomingMovies = () => {
     .catch((error) => {
       throw error;
     });
-};
+   
+  
+  
+  
+  };
+
+    
+
 
 
 

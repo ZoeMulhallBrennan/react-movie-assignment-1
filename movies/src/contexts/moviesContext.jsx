@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import AddToPlaylistIcon from "../components/cardIcons/playlistAddIcon";
 
 export const MoviesContext = React.createContext(null);
 
@@ -6,7 +7,7 @@ export const MoviesContext = React.createContext(null);
 const MoviesContextProvider = (props) => {
   const [favorites, setFavorites] = useState( [] )
   const [mustWatch, setMustWatch] = useState( [] )
-
+ 
   const addToFavorites = (movie) => {
     let newFavorites = [];
     if (!favorites.includes(movie.id)){
@@ -48,6 +49,7 @@ const addToMustWatch = (movie) => {
         addReview,
         mustWatch,
         addToMustWatch,
+        AddToPlaylistIcon
       }}
     >
       {props.children}

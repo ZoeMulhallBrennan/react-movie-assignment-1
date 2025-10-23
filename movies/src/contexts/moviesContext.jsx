@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import AddToPlaylistIcon from "../components/cardIcons/playlistAddIcon";
+
 
 export const MoviesContext = React.createContext(null);
 
@@ -48,8 +48,7 @@ const addToMustWatch = (movie) => {
         removeFromFavorites,
         addReview,
         mustWatch,
-        addToMustWatch,
-        AddToPlaylistIcon
+        addToMustWatch
       }}
     >
       {props.children}

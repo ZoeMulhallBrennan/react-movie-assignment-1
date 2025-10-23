@@ -3,7 +3,7 @@ import PageTemplate from "../components/templateMovieListPage";
 import { useQuery } from "@tanstack/react-query";
 import { getNowPlayingMovies } from "../api/tmdb-api";
 import Spinner from "../components/spinner";
-import PlaylistAddIcon from "../components/cardIcons/playlistAddIcon"; 
+import AddToWatchlist from "../components/cardIcons/addToWatchlist";
 
 const NowPlayingMoviesPage = () => {
   const { data, isPending, isError, error } = useQuery({
@@ -26,7 +26,7 @@ const NowPlayingMoviesPage = () => {
       title="Now Playing Movies"
       movies={movies}
       action={(movie) => {
-        return <PlaylistAddIcon movie={movie} />; 
+        return <AddToWatchlist movie={movie} />; 
       }}
     />
   );

@@ -14,8 +14,8 @@ import UpcomingMoviesPage from "./pages/upcomingMoviesPage";
 import MustWatchMoviesPage from "./pages/mustWatchMoviesPage";
 import TrendingTodayPage from "./pages/trendingTodayPage";
 import NowPlayingMoviesPage from "./pages/nowPlayingMoviesPage";
-
-
+import { ThemeProvider,createTheme } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
 
 
 const queryClient = new QueryClient({
@@ -28,12 +28,23 @@ const queryClient = new QueryClient({
   },
 });
 
+const theme = createTheme ({
+palette: {
+  background: { default : "#addbe6"
+
+  }
+
+}
+})
+
 const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <SiteHeader />
         <MoviesContextProvider>
+          <ThemeProvider theme={theme}>
+            <CssBaseline /> 
           <Routes>
             <Route path="/reviews/form" element={ <AddMovieReviewPage /> } />
             <Route path="/movies/favorites" element={<FavoriteMoviesPage />} />
@@ -46,6 +57,7 @@ const App = () => {
             <Route path="/" element={<HomePage />} />
             <Route path="*" element={ <Navigate to="/" /> } />
           </Routes>
+          </ThemeProvider>
         </MoviesContextProvider>
       </BrowserRouter>
       <ReactQueryDevtools initialIsOpen={false} />

@@ -30,12 +30,15 @@ const queryClient = new QueryClient({
 
 const theme = createTheme ({
 palette: {
-  background: { default : "#addbe6"
+  mode: "light",
+  background: { default : "#adebb3", paper:"#cae7d3"
+
+  }
 
   }
 
 }
-})
+)
 
 const App = () => {
   return (

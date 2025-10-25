@@ -13,7 +13,9 @@ import AddMovieReviewPage from './pages/addMovieReviewPage';
 import UpcomingMoviesPage from "./pages/upcomingMoviesPage";
 import MustWatchMoviesPage from "./pages/mustWatchMoviesPage";
 import TrendingTodayPage from "./pages/trendingTodayPage";
+import TopRatedMoviesPage from "./pages/topRatedMoviesPage";
 import NowPlayingMoviesPage from "./pages/nowPlayingMoviesPage";
+import PopularMoviesPage from "./pages/popularMoviesPage";
 import { ThemeProvider,createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 
@@ -31,9 +33,9 @@ const queryClient = new QueryClient({
 const theme = createTheme ({
 palette: {
   mode: "light",
-  background: { default : "#adebb3", paper:"#cae7d3"
-
-  }
+  background: { default : "#adebb3", paper:"#cae7d3"},
+  primary: { main : "#3eb489"},
+  secondary: { main : "#1dbd83ff"}
 
   }
 
@@ -55,6 +57,8 @@ const App = () => {
             <Route path="/movies/trending/today" element={<TrendingTodayPage/>} />
             <Route path="/movies/mustwatch" element={<MustWatchMoviesPage/>}/>
             <Route path="/movies/nowplaying" element={<NowPlayingMoviesPage/>} />
+            <Route path="/movies/toprated" element={<TopRatedMoviesPage/>} />
+            <Route path="/movies/popular" element={<PopularMoviesPage/>} />
             <Route path="/reviews/:id" element={ <MovieReviewPage /> } />
             <Route path="/movies/:id" element={<MoviePage />} />
             <Route path="/" element={<HomePage />} />

@@ -32,7 +32,7 @@ const MustWatchMoviesPage = () => {
       title="Must Watch Movies"
       movies={movies}
       action={toDo}
-    />
+  />
   );
 };
 

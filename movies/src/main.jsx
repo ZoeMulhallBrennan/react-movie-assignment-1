@@ -35,7 +35,8 @@ palette: {
   mode: "light",
   background: { default : "#adebb3", paper:"#cae7d3"},
   primary: { main : "#3eb489"},
-  secondary: { main : "#1dbd83ff"}
+  secondary: { main : "#1dbd83ff"},
+  appbar: { main : "#1dbd83ff" }
 
   }
 

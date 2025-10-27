@@ -11,6 +11,7 @@ import Typography from "@mui/material/Typography";
 import Drawer from "@mui/material/Drawer";
 import MovieReviews from "../movieReviews";
 import MovieCredits from "../movieCredits";
+import MovieRecommendations from "../movieRecommendations"
 import LanguageIcon from "@mui/material/Chip";
 
 
@@ -29,6 +30,7 @@ const chip = { margin: 0.5 };
 const MovieDetails = ({ movie }) => { 
 const [reviewsDrawerOpen, setReviewsDrawerOpen] = useState(false);
 const [creditsDrawerOpen, setCreditsDrawerOpen] = useState(false);
+const [recommendationsDrawerOpen, setRecommendationsDrawerOpen] = useState(false);
 
 
   return (
@@ -96,7 +98,7 @@ const [creditsDrawerOpen, setCreditsDrawerOpen] = useState(false);
         onClick={() =>setReviewsDrawerOpen(true)}
         sx={{
           position: 'fixed',
-          bottom: '1em',
+          bottom: '9em',
           right: '1em'
         }}
       >
@@ -124,7 +126,26 @@ const [creditsDrawerOpen, setCreditsDrawerOpen] = useState(false);
         <MovieCredits movie={movie} />
       </Drawer>
 
+      <Fab
+        color="secondary"
+        variant="extended"
+        onClick={() =>setRecommendationsDrawerOpen(true)}
+        sx={{
+          position: 'fixed',
+          bottom: '1em',
+          right: '1em'
+        }}
+      >
+      <NavigationIcon/>
+        Recommendations
+      </Fab>
+      <Drawer anchor="top" open={recommendationsDrawerOpen} onClose={() => setRecommendationsDrawerOpen(false)}>
+        <MovieRecommendations movie={movie} />
+      </Drawer>
+
       </>
+
+      
   );
 };
 export default MovieDetails ;

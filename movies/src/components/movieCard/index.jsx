@@ -15,7 +15,6 @@ import img from '../../images/film-poster-placeholder.png'
 import { Link } from "react-router";
 import Avatar from '@mui/material/Avatar';
 import { MoviesContext } from "../../contexts/moviesContext";
-import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
 
 export default function MovieCard({ movie, action }) {
   const { favorites } = useContext(MoviesContext);

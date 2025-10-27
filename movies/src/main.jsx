@@ -16,6 +16,7 @@ import TrendingTodayPage from "./pages/trendingTodayPage";
 import TopRatedMoviesPage from "./pages/topRatedMoviesPage";
 import NowPlayingMoviesPage from "./pages/nowPlayingMoviesPage";
 import PopularMoviesPage from "./pages/popularMoviesPage";
+import MovieCreditsPage from "./pages/movieCreditsPage";
 import { ThemeProvider,createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 
@@ -61,6 +62,7 @@ const App = () => {
             <Route path="/movies/toprated" element={<TopRatedMoviesPage/>} />
             <Route path="/movies/popular" element={<PopularMoviesPage/>} />
             <Route path="/reviews/:id" element={ <MovieReviewPage /> } />
+            <Route path="/cast/:id" element={<MovieCreditsPage />} />
             <Route path="/movies/:id" element={<MoviePage />} />
             <Route path="/" element={<HomePage />} />
             <Route path="*" element={ <Navigate to="/" /> } />

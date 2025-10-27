@@ -5,10 +5,12 @@ import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import MonetizationIcon from "@mui/icons-material/MonetizationOn";
 import StarRate from "@mui/icons-material/StarRate";
 import NavigationIcon from "@mui/icons-material/Navigation";
+import PeopleIcon from "@mui/icons-material/People";
 import Fab from "@mui/material/Fab";
 import Typography from "@mui/material/Typography";
 import Drawer from "@mui/material/Drawer";
 import MovieReviews from "../movieReviews";
+import MovieCredits from "../movieCredits";
 import LanguageIcon from "@mui/material/Chip";
 
 
@@ -25,7 +27,8 @@ const root = {
 const chip = { margin: 0.5 };
 
 const MovieDetails = ({ movie }) => { 
-const [drawerOpen, setDrawerOpen] = useState(false);
+const [reviewsDrawerOpen, setReviewsDrawerOpen] = useState(false);
+const [creditsDrawerOpen, setCreditsDrawerOpen] = useState(false);
 
 
   return (
@@ -64,6 +67,7 @@ const [drawerOpen, setDrawerOpen] = useState(false);
         <Chip label={`Released: ${movie.release_date}`} />
       </Paper>
         
+
       <Paper component="ul" sx={{...root}}>
         <li>
             <Chip label="Production Countries" sx={{...chip}} color="primary"/>
@@ -89,7 +93,7 @@ const [drawerOpen, setDrawerOpen] = useState(false);
       <Fab
         color="secondary"
         variant="extended"
-        onClick={() =>setDrawerOpen(true)}
+        onClick={() =>setReviewsDrawerOpen(true)}
         sx={{
           position: 'fixed',
           bottom: '1em',
@@ -99,12 +103,25 @@ const [drawerOpen, setDrawerOpen] = useState(false);
         <NavigationIcon />
         Reviews
       </Fab>
-      <Drawer anchor="top" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
+      <Drawer anchor="top" open={reviewsDrawerOpen} onClose={() => setReviewsDrawerOpen(false)}>
         <MovieReviews movie={movie} />
       </Drawer>
 
-      <Drawer anchor="top" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
-        <MovieReviews movie={movie} />
+      <Fab
+        color="secondary"
+        variant="extended"
+        onClick={() =>setCreditsDrawerOpen(true)}
+        sx={{
+          position: 'fixed',
+          bottom: '5em',
+          right: '1em'
+        }}
+      >
+        <PeopleIcon/>
+        Credits
+      </Fab>
+      <Drawer anchor="top" open={creditsDrawerOpen} onClose={() => setCreditsDrawerOpen(false)}>
+        <MovieCredits movie={movie} />
       </Drawer>
 
       </>

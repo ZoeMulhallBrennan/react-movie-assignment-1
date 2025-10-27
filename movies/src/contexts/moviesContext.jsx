@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 
+
 export const MoviesContext = React.createContext(null);
 
 
@@ -40,12 +41,20 @@ const addToMustWatch = (movie) => {
     console.log("Must Watch List:", newMustWatch);
   }};
 
+const removeFromWatchlist = (movie) => {
+  setMustWatch( mustWatch.filter(
+    (mId) => mId !== movie.id
+  ) )
+};
+
+
  return (
     <MoviesContext.Provider
       value={{
         favorites,
         addToFavorites,
         removeFromFavorites,
+        removeFromWatchlist,
         addReview,
         mustWatch,
         addToMustWatch

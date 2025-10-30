@@ -4,6 +4,8 @@ import { useQuery } from "@tanstack/react-query";
 import { getTopRatedMovies } from "../api/tmdb-api";
 import Spinner from "../components/spinner";
 import WriteReview from "../components/cardIcons/writeReview";
+import AddToWatchlist from "../components/cardIcons/addToWatchlist";
+import AddToFavoritesIcon from '../components/cardIcons/addToFavorites';
 
 const TopRatedMoviesPage = () => {
   const { data: movies, isLoading, error } = useQuery({
@@ -24,6 +26,8 @@ const TopRatedMoviesPage = () => {
         return (
           <>
             <WriteReview movie={movie} />
+           <AddToWatchlist movie={movie} />
+         <AddToFavoritesIcon movie={movie} />
           </>
         );
       }}

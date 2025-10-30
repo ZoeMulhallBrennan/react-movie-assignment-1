@@ -30,6 +30,10 @@ export default function FilterMoviesCard(props) {
     queryFn: getGenres,
   });
 
+
+  const [yearFilter, setYearFilter] = useState("");
+  const [languageFilter, setLanguageFilter] = useState("");
+
   if (isPending) {
     return <Spinner />;
   }
@@ -54,6 +58,16 @@ export default function FilterMoviesCard(props) {
   const handleGenreChange = (e) => {
     handleChange(e, "genre", e.target.value);
   };
+
+  const handleYearChange = (e) => {
+    setYearFilter(e.target.value);
+    handleChange(e, "year", e.target.value)
+  };
+
+  const handleLanguageChange = (e) => {
+    setLanguageFilter(e.target.value);
+    handleChange(e, "language", e.target.value);
+  }
 
 
 
@@ -96,6 +110,45 @@ export default function FilterMoviesCard(props) {
               );
             })}
           </Select>
+        </FormControl>
+
+        <FormControl sx={{...formControl}}>
+          <InputLabel id="year-label">Release Year</InputLabel>
+          <Select labelId="year-label" 
+          id="year-select" 
+          defaultValue=""
+          value={yearFilter} 
+          onChange={handleYearChange}>
+            <MenuItem value="All Years">All Years</MenuItem>
+            <MenuItem value="2026">2026</MenuItem>
+            <MenuItem value="2025">2025</MenuItem>
+            <MenuItem value="2024">2024</MenuItem>
+            <MenuItem value="2023">2023</MenuItem>
+            <MenuItem value="2022">2022</MenuItem>
+            <MenuItem value="2021">2021</MenuItem>
+            <MenuItem value="2020">2020</MenuItem>
+          </Select>
+
+        </FormControl>
+
+       <FormControl sx={{...formControl}}>
+          <InputLabel id="language-label">Language</InputLabel>
+          <Select 
+          labelId="language-label" 
+          id="language-select" 
+          defaultValue=""
+          value={languageFilter} 
+          onChange={handleLanguageChange}>
+            <MenuItem value="All languages">All languages</MenuItem>
+            <MenuItem value="en">English</MenuItem>
+            <MenuItem value="es">Spanish</MenuItem>
+            <MenuItem value="fr">French</MenuItem>
+            <MenuItem value="de">German</MenuItem>
+            <MenuItem value="ja">Japenese</MenuItem>
+            <MenuItem value="ko">Korean</MenuItem>
+            <MenuItem value="pl">Polish</MenuItem>
+          </Select>
+
         </FormControl>
       </CardContent>
       <CardMedia

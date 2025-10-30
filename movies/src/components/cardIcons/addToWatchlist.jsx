@@ -1,23 +1,21 @@
 import React, { useContext } from "react";
-import PlaylistAddIcon from "@mui/icons-material/PlaylistAdd";
 import IconButton from "@mui/material/IconButton";
+import PlaylistAddIcon from "@mui/icons-material/PlaylistAdd";
 import { MoviesContext } from "../../contexts/moviesContext";
 
-const AddToWatchlist = ({ movie }) => {
-  const { addToMustWatch } = useContext(MoviesContext);
+const AddToWatchlistIcon = ({ movie }) => {
+  const context = useContext(MoviesContext);
 
-  const handleAdd = () => {
-    addToMustWatch(movie);
+  const handleAddToWatchlist = (e) => {
+    e.preventDefault();
+    context.addToWatchlist(movie);
   };
 
   return (
-    <IconButton
-      aria-label="add to must watch"
-      onClick={handleAdd}
-    >
+    <IconButton aria-label="add to watchlist" onClick={handleAddToWatchlist}>
       <PlaylistAddIcon color="primary" fontSize="large" />
     </IconButton>
   );
 };
 
-export default AddToWatchlist;
+export default AddToWatchlistIcon;

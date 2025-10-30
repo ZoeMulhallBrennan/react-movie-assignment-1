@@ -3,6 +3,8 @@ import PageTemplate from "../components/templateMovieListPage";
 import { useQuery } from "@tanstack/react-query";
 import { getPopularMovies } from "../api/tmdb-api";
 import Spinner from "../components/spinner";
+import AddToWatchlist from "../components/cardIcons/addToWatchlist";
+import AddToFavoritesIcon from '../components/cardIcons/addToFavorites';
 
 const PopularMoviesPage = () => {
   const { data: movies, isLoading, error } = useQuery({
@@ -19,7 +21,10 @@ const PopularMoviesPage = () => {
     <PageTemplate
       title="Popular Movies"
       movies={movies}
-      action={toDo}
+      action={(movie) => {
+      return (<> <AddToWatchlist movie={movie} />
+        <AddToFavoritesIcon movie={movie} /> </>)
+      }}
     />
   );
 };

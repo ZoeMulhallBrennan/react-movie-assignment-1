@@ -3,6 +3,9 @@ import PageTemplate from "../components/templateMovieListPage";
 import { useQuery } from "@tanstack/react-query";
 import { getTrendingTodayMovies } from "../api/tmdb-api";
 import Spinner from "../components/spinner";
+import AddToWatchlistIcon from "../components/cardIcons/addToWatchlist";
+import AddToFavoritesIcon from '../components/cardIcons/addToFavorites';
+
 
 const TrendingTodayPage = () => {
   const { data: movies, isLoading, error } = useQuery({
@@ -19,7 +22,10 @@ const TrendingTodayPage = () => {
     <PageTemplate
       title="Trending Today"
       movies={movies}
-      action={toDo}
+      action={(movie) => {
+        return( <> <AddToWatchlistIcon movie={movie} />
+         <AddToFavoritesIcon movie={movie} /> </>)
+      }}
     />
   );
 };

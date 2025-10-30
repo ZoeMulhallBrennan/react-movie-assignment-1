@@ -54,13 +54,13 @@ const App = () => {
             <CssBaseline /> 
           <Routes>
             <Route path="/reviews/form" element={ <AddMovieReviewPage /> } />
-            <Route path="/movies/favorites" element={<FavoriteMoviesPage />} />
             <Route path="/movies/upcoming" element={<UpcomingMoviesPage/>} />
             <Route path="/movies/trending/today" element={<TrendingTodayPage/>} />
-            <Route path="/movies/mustwatch" element={<MustWatchMoviesPage/>}/>
             <Route path="/movies/nowplaying" element={<NowPlayingMoviesPage/>} />
             <Route path="/movies/toprated" element={<TopRatedMoviesPage/>} />
             <Route path="/movies/popular" element={<PopularMoviesPage/>} />
+            <Route path="/movies/favorites" element={<FavoriteMoviesPage />} />
+            <Route path="/movies/mustwatch" element={<MustWatchMoviesPage/>}/>
             <Route path="/reviews/:id" element={ <MovieReviewPage /> } />
             <Route path="/cast/:id" element={<MovieCreditsPage />} />
             <Route path="/movies/:id" element={<MoviePage />} />

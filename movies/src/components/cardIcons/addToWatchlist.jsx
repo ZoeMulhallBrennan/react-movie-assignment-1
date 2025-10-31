@@ -3,19 +3,18 @@ import IconButton from "@mui/material/IconButton";
 import PlaylistAddIcon from "@mui/icons-material/PlaylistAdd";
 import { MoviesContext } from "../../contexts/moviesContext";
 
-const AddToWatchlistIcon = ({ movie }) => {
-  const context = useContext(MoviesContext);
+const AddToWatchlist = ({ movie }) => {
+  const {addToMustWatch} = useContext(MoviesContext);
 
-  const handleAddToWatchlist = (e) => {
-    e.preventDefault();
-    context.addToWatchlist(movie);
+  const handleAdd = () => {
+    addToMustWatch(movie);
   };
 
   return (
-    <IconButton aria-label="add to watchlist" onClick={handleAddToWatchlist}>
+    <IconButton aria-label="add to watchlist" onClick={handleAdd}>
       <PlaylistAddIcon color="primary" fontSize="large" />
     </IconButton>
   );
 };
 
-export default AddToWatchlistIcon;
+export default AddToWatchlist;
